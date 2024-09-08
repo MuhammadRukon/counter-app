@@ -1,9 +1,4 @@
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
@@ -14,12 +9,13 @@ export default function HomeScreen(): JSX.Element {
     setCount((val) => val + 1);
   };
   const handleSubtraction = (): void => {
-    setCount((val) => val - 1);
+    if (count > 0) setCount((val) => val - 1);
   };
   return (
     <View style={styles.container}>
       <View style={styles.counterWrapper}>
         <Text style={styles.text}>{count}</Text>
+
         <View style={styles.buttonWrapper}>
           <TouchableOpacity style={styles.button} onPress={handleSubtraction}>
             <Text style={styles.buttonText}>-</Text>
@@ -29,7 +25,7 @@ export default function HomeScreen(): JSX.Element {
           </TouchableOpacity>
         </View>
       </View>
-   <StatusBar style="dark" backgroundColor="#71797E"/>
+      <StatusBar style="dark" backgroundColor="#71797E" />
     </View>
   );
 }
