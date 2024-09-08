@@ -12,25 +12,32 @@ export default function HomeScreen(): JSX.Element {
     if (count > 0) setCount((val) => val - 1);
   };
   return (
-    <View style={styles.container}>
-      <View style={styles.counterWrapper}>
-        <Text style={styles.text}>{count}</Text>
+    <>
+      <View style={styles.container}>
+        <View style={styles.counterWrapper}>
+          <Text style={styles.title}>Newbie's Counter App</Text>
+          <Text style={styles.text}>{count}</Text>
 
-        <View style={styles.buttonWrapper}>
-          <TouchableOpacity style={styles.button} onPress={handleSubtraction}>
-            <Text style={styles.buttonText}>-</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={handleAddition}>
-            <Text style={styles.buttonText}>+</Text>
-          </TouchableOpacity>
+          <View style={styles.buttonWrapper}>
+            <TouchableOpacity style={styles.button} onPress={handleSubtraction}>
+              <Text style={styles.buttonText}>-</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={handleAddition}>
+              <Text style={styles.buttonText}>+</Text>
+            </TouchableOpacity>
+          </View>
         </View>
+        <StatusBar style="dark" backgroundColor="#71797E" />
       </View>
-      <StatusBar style="dark" backgroundColor="#71797E" />
-    </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 24,
+    textAlign: "center",
+  },
   container: {
     display: "flex",
     height: "100%",
@@ -42,12 +49,15 @@ const styles = StyleSheet.create({
     fontSize: 50,
     textAlign: "center",
     marginBottom: 20,
+    marginTop: 20,
   },
   buttonWrapper: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     gap: 10,
+    marginTop: 20,
+    marginBottom: 15,
   },
   button: {
     backgroundColor: "#000",
@@ -62,7 +72,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   counterWrapper: {
-    width: "90%",
+    width: "80%",
     backgroundColor: "#A9A9A9",
     shadowColor: "#000",
     shadowOffset: {
